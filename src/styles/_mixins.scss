@@ -1,0 +1,18 @@
+@use 'variables';
+
+@mixin custom-btn(
+    $background: transparent,
+    $background_hover: transparent,
+    $color: variables.$text,
+    $color_hover: variables.$text,
+  ) {
+  border: none;
+  outline: none;
+  background-color: $background;
+  color: $color;
+
+  &:hover {
+    color: $color_hover;
+    background-color: $background_hover;
+  }
+}
