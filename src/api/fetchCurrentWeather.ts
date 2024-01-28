@@ -9,8 +9,6 @@ const fetchCurrentWeather = async ({ lat, lon }: Params): Promise<Weather> => {
       `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=9f3f4ed9f55611123540b1faf62d5fd9`
     );
 
-    console.log(data);
-
     return data;
   } catch (error) {
     throw new Error("Error");
