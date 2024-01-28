@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { Weather } from "@/interface/Weather";
 
 import fetchCurrentWeather from "@/api/fetchCurrentWeather";
-import { Params } from "@/interface/API";
+import { Coordinates } from "@/interface/Coordinates";
 
 type WeatherState = {
   weather: Weather;
@@ -17,7 +17,7 @@ const initialState: WeatherState = {
 
 const fetchWeather = createAsyncThunk(
   "weather/fetch",
-  async ({ lat, lon }: Params) => {
+  async ({ lat, lon }: Coordinates) => {
     const data = await fetchCurrentWeather({ lat, lon });
 
     return data;

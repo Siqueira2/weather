@@ -1,10 +1,10 @@
-import { Capital } from "@/interface/Capitals";
+import { Coordinates } from "@/interface/Coordinates";
 
-export const capitais: Record<string, Capital> = {
-  brasilia: { lat: -15.7801, lon: -47.9292 },
-  tokyo: { lat: 35.6895, lon: 139.6917 },
-  london: { lat: 51.5099, lon: -0.118 },
-  new_york: { lat: 40.7128, lon: -74.006 },
-  beijing: { lat: 39.9042, lon: 116.4074 },
-  cairo: { lat: 30.033, lon: 31.2336 },
+export const capitalsCoordinates: Record<string, Coordinates> = {
+  brasilia: { lat: "-15.7801", lon: "-47.9292" },
+  sao_paulo: { lat: "-23.5505", lon: "-46.6333" },
+  rio_de_janeiro: { lat: "-22.9068", lon: "-43.1729" },
+  salvador: { lat: "-12.9714", lon: "-38.5014" },
+  belo_horizonte: { lat: "-19.9167", lon: "-43.9345" },
+  fortaleza: { lat: "-3.7172", lon: "-38.5433" },
 };

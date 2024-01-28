@@ -1,4 +1,4 @@
-export type Params = {
+export type Coordinates = {
   lat: string;
   lon: string;
 };
