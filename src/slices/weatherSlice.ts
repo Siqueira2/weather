@@ -6,19 +6,19 @@ import fetchCurrentWeather from "@/api/fetchCurrentWeather";
 import { Coordinates } from "@/interface/Coordinates";
 
 type WeatherState = {
-  weather: Weather;
+  weather: Weather[];
   loading: boolean;
 };
 
 const initialState: WeatherState = {
-  weather: {} as Weather,
+  weather: [],
   loading: false,
 };
 
-const fetchWeather = createAsyncThunk(
+export const fetchWeather = createAsyncThunk(
   "weather/fetch",
-  async ({ lat, lon }: Coordinates) => {
-    const data = await fetchCurrentWeather({ lat, lon });
+  async (coordinate: Coordinates): Promise<Weather> => {
+    const data = await fetchCurrentWeather(coordinate);
 
     return data;
   }
@@ -36,7 +36,7 @@ export const weatherSlice = createSlice({
       .addCase(
         fetchWeather.fulfilled,
         (state, action: PayloadAction<Weather>) => {
-          state.weather = action.payload;
+          state.weather.push(action.payload);
         }
       );
   },
