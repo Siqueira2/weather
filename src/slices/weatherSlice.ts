@@ -6,12 +6,12 @@ import fetchCurrentWeather from "@/api/fetchCurrentWeather";
 import { Coordinates } from "@/interface/Coordinates";
 
 type WeatherState = {
-  weather: Weather[];
+  weathers: Weather[];
   loading: boolean;
 };
 
 const initialState: WeatherState = {
-  weather: [],
+  weathers: [],
   loading: false,
 };
 
@@ -36,7 +36,13 @@ export const weatherSlice = createSlice({
       .addCase(
         fetchWeather.fulfilled,
         (state, action: PayloadAction<Weather>) => {
-          state.weather.push(action.payload);
+          const hasDuplicate = state.weathers.every(
+            (weather) => weather.id !== action.payload.id
+          );
+
+          if (hasDuplicate) {
+            state.weathers.push(action.payload);
+          }
         }
       );
   },
