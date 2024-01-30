@@ -1,3 +1,5 @@
+import "@/styles/components/CapitalsWeather/capitalsWeather.scss";
+
 import { Weather } from "@/interface/Weather";
 
 type Props = { capital: Weather };
@@ -11,11 +13,9 @@ const CapitalWeatherItem = ({ capital }: Props) => {
 
   return (
     <li className="list-item">
-      <div>
-        <span>{formatTemperature(capital.main.temp_max)}</span>
+      <span>{formatTemperature(capital.main.temp_max)}</span>
 
-        <span>{formatTemperature(capital.main.temp_min)}</span>
-      </div>
+      <span>{formatTemperature(capital.main.temp_min)}</span>
 
       <p>{capital.name}</p>
     </li>

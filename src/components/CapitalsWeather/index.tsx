@@ -22,14 +22,16 @@ const CapitalsWeather = () => {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className="section-container">
       <h2 className="title">Capitais</h2>
 
-      <ul className="list">
+      <div className="list-header">
         <p>Max</p>
 
         <p>Min</p>
+      </div>
 
+      <ul className="list">
         {weathers &&
           weathers.map((capital) => (
             <CapitalWeatherItem key={capital.id} capital={capital} />
